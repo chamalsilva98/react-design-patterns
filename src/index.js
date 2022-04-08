@@ -1,14 +1,4 @@
-import React from "react";
-import ReactDOMClient from "react-dom/client";
-import App from "./App";
-import "./index.css";
+const test = "Hello";
 
-const container = document.getElementById("root");
-
-const root = ReactDOMClient.createRoot(container);
-
-root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-);
+console.log(test.split("").sort());
+console.log(test);
