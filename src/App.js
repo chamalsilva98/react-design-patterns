@@ -11,12 +11,12 @@ const App = () => {
     const updateCounter = () => setKey(Math.random().toString());
 
     const increaseCounter = () => () => {
-        counterObj.setCount = counterObj.count + 1;
+        counterObj.increaseByOne();
         updateCounter();
     };
 
     const decreaseCounter = () => () => {
-        counterObj.setCount = counterObj.count - 1;
+        counterObj.decreaseByOne();
         updateCounter();
     };
 

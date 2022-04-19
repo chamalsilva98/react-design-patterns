@@ -15,6 +15,14 @@ const Counter = (() => {
         set setCount(countVal) {
             this.#countVal = countVal;
         }
+
+        increaseByOne() {
+            this.#countVal += 1;
+        }
+
+        decreaseByOne() {
+            this.#countVal -= 1;
+        }
     }
 
     return {
