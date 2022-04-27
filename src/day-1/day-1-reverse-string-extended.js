@@ -1,4 +1,4 @@
-import reverseString from "./day-0-reverse-string";
+import reverseString from "../day-0/day-0-reverse-string";
 
 String.prototype.reverseString = function () {
     return reverseString(this);

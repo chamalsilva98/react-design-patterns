@@ -1,6 +1,6 @@
-import reverseString from "./day-0-reverse-string";
-import "./day-1-reverse-string-extended";
-import intersection from "./day-3-intersection";
+import reverseString from "./day-0/day-0-reverse-string";
+import "./day-1/day-1-reverse-string-extended";
+import intersection from "./day-2/day-2-intersection";
 
 console.log(reverseString("jake"));
 console.log(reverseString("reversestring"));
