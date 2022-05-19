@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [posts, setPosts] = React.useState([]);
+    const [search, setSearch] = React.useState("");
+
+    React.useEffect(() => {
+        const getPosts = async () => {
+            let posts = await (
+                await fetch("https://jsonplaceholder.typicode.com/posts")
+            ).json();
+            posts = posts.sort((a, b) => a.title.localeCompare(b.title));
+            setPosts(posts);
+        };
+        getPosts();
+    }, []);
+
+    const filteredPosts = posts.filter((post) => {
+        const substr = post.title.substring(0, search.length);
+        return search === substr;
+    });
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <label htmlFor="search">Search</label>
+                <input
+                    style={{ marginLeft: 16 }}
+                    type="text"
+                    name="search"
+                    id="search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </header>
+            <main>
+                {filteredPosts.map((post) => (
+                    <div key={post.title}>{post.title}</div>
+                ))}
+            </main>
+        </div>
+    );
 }
 
 export default App;
